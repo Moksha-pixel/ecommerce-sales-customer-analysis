@@ -1,0 +1,93 @@
+YUVAINTERN WEEK 2 - DATA ACQUISITION AND CLEANING RESULTS
+======================================================================
+
+1. DATA ACQUISITION
+----------------------------------------
+Source: UCI Machine Learning Repository - Online Retail Dataset
+Input file: online retail.xlsx
+Original rows: 541909
+Original columns: 8
+
+2. INITIAL DATA QUALITY PROFILE
+----------------------------------------
+Duplicate rows: 5268
+Cancelled invoice records: 9288
+Negative quantity records: 10624
+Zero/negative price records: 2517
+
+Missing values before cleaning:
+InvoiceNo           0
+StockCode           0
+Description      1454
+Quantity            0
+InvoiceDate         0
+UnitPrice           0
+CustomerID     135080
+Country             0
+
+3. CLEANING PROCESS
+----------------------------------------
+Rows after removing exact duplicate rows: 536641
+Rows after removing cancelled invoices: 527390
+Rows after removing non-positive quantities: 526054
+Rows after removing non-positive prices: 524878
+Missing descriptions were replaced with 'Unknown Product'.
+Text fields were stripped of unnecessary leading/trailing spaces.
+InvoiceDate was converted to datetime format.
+Quantity, UnitPrice and CustomerID were converted to numeric types.
+Rows with invalid Quantity, UnitPrice or InvoiceDate were removed.
+
+4. FEATURE ENGINEERING
+----------------------------------------
+Revenue = Quantity × UnitPrice
+Created Year, Month, Month_Name, Day and Day_of_Week.
+
+5. OUTLIER DETECTION
+----------------------------------------
+Method: Interquartile Range (IQR)
+Quantity lower bound: -14.0000
+Quantity upper bound: 26.0000
+UnitPrice lower bound: -3.0700
+UnitPrice upper bound: 8.4500
+Revenue lower bound: -16.8000
+Revenue upper bound: 38.4000
+Outlier records identified: 81467
+Outliers were flagged rather than automatically deleted from the main cleaned transaction dataset because extreme values may represent genuine wholesale transactions.
+
+6. NORMALIZATION AND ENCODING
+----------------------------------------
+Quantity, UnitPrice and Revenue were normalized using Min-Max scaling for the model-ready dataset.
+Country was converted into numerical features using one-hot encoding.
+CustomerID was retained as an identifier for customer analysis and not treated as a continuous numerical feature.
+
+7. FINAL VALIDATION
+----------------------------------------
+Final cleaned rows: 524878
+Final cleaned columns: 18
+Duplicate rows after cleaning: 0
+
+Missing values after cleaning:
+InvoiceNo                 0
+StockCode                 0
+Description               0
+Quantity                  0
+InvoiceDate               0
+UnitPrice                 0
+CustomerID           132186
+Country                   0
+Revenue                   0
+Year                      0
+Month                     0
+Month_Name                0
+Day                       0
+Day_of_Week               0
+Quantity_Outlier          0
+UnitPrice_Outlier         0
+Revenue_Outlier           0
+Is_Outlier                0
+
+8. OUTPUT FILES
+----------------------------------------
+Cleaned dataset: online_retail_cleaned.csv
+Model-ready dataset: online_retail_model_ready.csv
+Results report: week2_results.txt
