@@ -1,0 +1,25 @@
+YUVAINTERN WEEK 4: STATISTICAL MODELING RESULTS
+=======================================================
+
+MODEL: Random Forest Regression
+Target: Quantity
+Features: UnitPrice, Month, DayOfWeek, Hour, Country
+
+DATA PREPARATION
+Rows used after modeling filters: 50000
+Training rows: 40000
+Testing rows: 10000
+Test split: 20%; random_state=42
+Cross-validation: 3-fold shuffled KFold
+
+TEST METRICS
+MAE: 7.486046
+RMSE: 24.449051
+R-squared: 0.235261
+Baseline median-prediction MAE: 8.265500
+Best CV MAE: 8.088187
+
+Best parameters: {'model__n_estimators': 100, 'model__min_samples_split': 10, 'model__min_samples_leaf': 1, 'model__max_depth': 20}
+
+LIMITATIONS
+The random split may place transactions from the same invoice or time period in both training and test sets. Results therefore measure performance on a random holdout, not future-period forecasting. Quantity can also be highly skewed.
