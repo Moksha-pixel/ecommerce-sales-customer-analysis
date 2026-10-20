@@ -1,0 +1,52 @@
+YUVAINTERN WEEK 3: EDA RESULTS
+=======================================================
+
+1. DATA SUMMARY
+Rows analysed: 524,878
+Countries: 38
+Unique products: 3,922
+Unique invoices: 19,960
+Unique identified customers: 4,338
+Date range: 2010-12-01 08:26:00 to 2011-12-09 12:50:00
+Total revenue across analysed transaction lines: 10,642,110.80
+Average line revenue: 20.28
+Median line revenue: 9.92
+
+2. DESCRIPTIVE STATISTICS
+        Quantity  UnitPrice    Revenue
+count  524878.00  524878.00  524878.00
+mean       10.62       3.92      20.28
+std       156.28      36.09     271.69
+min         1.00       0.00       0.00
+25%         1.00       1.25       3.90
+50%         4.00       2.08       9.92
+75%        11.00       4.13      17.70
+max     80995.00   13541.33  168469.60
+
+3. MISSING VALUES
+InvoiceNo           0
+StockCode           0
+Description         0
+Quantity            0
+InvoiceDate         0
+UnitPrice           0
+CustomerID     132186
+Country             0
+Revenue             0
+
+4. VISUALIZATION FINDINGS
+Highest-revenue month: 2011-11 (1,503,866.78)
+Highest-revenue country: United Kingdom (9,001,744.09)
+Top product by revenue: ('DOT', 'DOTCOM POSTAGE') (206,248.77)
+Correlation between Quantity and Revenue: 0.907
+Correlation between UnitPrice and Revenue: 0.137
+
+5. INTERPRETATION NOTES
+- Monthly revenue shows how recorded sales value changes over time.
+- Country and product charts identify the largest revenue contributors.
+- Histograms show the distributions and skewness of revenue and quantity.
+- The box plot helps display the spread and extreme unit-price values.
+- The scatter plot explores the relationship between quantity and revenue.
+- Correlation measures linear association, not causation.
+- The cleaned dataset excludes rows removed during Week 2; results describe this prepared dataset, not every original transaction.
+- Charts that limit the displayed range are zoomed for readability; the underlying dataset is not trimmed for those charts.
